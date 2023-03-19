@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Split a String into Words</title>
+  </head>
+  <body>
+    <script>
+      function toCamelCase(inputStr) {
+        const words = inputStr.split(" ");
+        const firstWord = words[0].toLowerCase();
+        const camelCase = [firstWord];
+        for (let i = 1; i < words.length; i++) {
+          camelCase.push(
+            words[i][0].toUpperCase() + words[i].substring(1).toLowerCase()
+          );
+        }
+        return camelCase.join("");
+      }
+
+      const inputStr = prompt("Enter a string:");
+      const camelCaseStr = toCamelCase(inputStr);
+      console.log("The CamelCase string is:", camelCaseStr);
+    </script>
+  </body>
+</html>

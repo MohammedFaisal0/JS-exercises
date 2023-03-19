@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Format a Time Duration</title>
+  </head>
+  <body>
+    <script>
+      function formatDuration(duration) {
+        const hours = Math.floor(duration / 3600);
+        const minutes = Math.floor((duration % 3600) / 60);
+        const seconds = duration % 60;
+        let result = "";
+        if (hours > 0) {
+          result += hours + " hour" + (hours > 1 ? "s" : "") + ", ";
+        }
+        if (minutes > 0) {
+          result += minutes + " minute" + (minutes > 1 ? "s" : "") + ", ";
+        }
+        if (seconds > 0 || result === "") {
+          result += seconds + " second" + (seconds > 1 ? "s" : "");
+        }
+        if (result.lastIndexOf(", ") === result.length - 2) {
+          result = result.substring(0, result.length - 2);
+          result = result.replace(", ", " and ");
+        }
+        return result;
+      }
+
+      const duration = parseInt(
+        prompt("Enter the time duration (in seconds):")
+      );
+      const formattedDuration = formatDuration(duration);
+      console.log(`The formatted duration is: ${formattedDuration}`);
+    </script>
+  </body>
+</html>

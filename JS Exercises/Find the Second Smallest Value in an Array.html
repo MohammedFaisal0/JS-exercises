@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find the Second Smallest Value in an Array</title>
+  </head>
+  <body>
+    <script>
+      function findSecondSmallest(arr) {
+        let smallest = Infinity;
+        let secondSmallest = Infinity;
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] < smallest) {
+            secondSmallest = smallest;
+            smallest = arr[i];
+          } else if (arr[i] < secondSmallest && arr[i] !== smallest) {
+            secondSmallest = arr[i];
+          }
+        }
+        return secondSmallest;
+      }
+
+      function getArrayFromUser() {
+        const size = parseInt(prompt("Enter the size of the array:"));
+        const arr = [];
+        for (let i = 0; i < size; i++) {
+          arr.push(parseInt(prompt(`Enter element ${i + 1}:`)));
+        }
+        return arr;
+      }
+
+      const arr = getArrayFromUser();
+      const secondSmallest = findSecondSmallest(arr);
+      console.log(
+        `The second smallest value in the array is ${secondSmallest}`
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Replace All Occurrences of a Substring in a String</title>
+  </head>
+  <body>
+    <script>
+      function replaceSubstring(str, substr, replacement) {
+        return str.split(substr).join(replacement);
+      }
+      let input = prompt("Enter a string:");
+      let substring = prompt("Enter a substring to replace:");
+      let replacement = prompt("Enter a replacement string:");
+
+      let result = replaceSubstring(input, substring, replacement);
+      console.log(`Sentence before replacement ${input}`);
+      console.log(`Sentence after replacement ${result}`);
+    </script>
+  </body>
+</html>
